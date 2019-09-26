@@ -16,6 +16,7 @@ import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.listener.CBPageChangeListener;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.bigkoo.convenientbanner.listener.OnPageChangeListener;
+import com.bigkoo.convenientbanner.utils.ScreenUtil;
 import com.bigkoo.convenientbanner.view.CBLoopViewPager;
 
 import java.lang.ref.WeakReference;
@@ -47,6 +48,10 @@ public class ConvenientBanner<T> extends RelativeLayout {
     private OnPageChangeListener onPageChangeListener;
     private AdSwitchTask adSwitchTask;
     private boolean isVertical = false;
+    /**
+     * 单位 px
+     */
+    private float mIndicatorBottomMargin = 10;
 
     public enum PageIndicatorAlign {
         ALIGN_PARENT_LEFT, ALIGN_PARENT_RIGHT, CENTER_HORIZONTAL
@@ -62,6 +67,7 @@ public class ConvenientBanner<T> extends RelativeLayout {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ConvenientBanner);
         canLoop = a.getBoolean(R.styleable.ConvenientBanner_canLoop, true);
         autoTurningTime = a.getInteger(R.styleable.ConvenientBanner_autoTurningTime, -1);
+        mIndicatorBottomMargin = a.getDimension(R.styleable.ConvenientBanner_indicatorBottomMargin,10);
         a.recycle();
         init(context);
     }
@@ -232,6 +238,7 @@ public class ConvenientBanner<T> extends RelativeLayout {
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, align == PageIndicatorAlign.ALIGN_PARENT_LEFT ? RelativeLayout.TRUE : 0);
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, align == PageIndicatorAlign.ALIGN_PARENT_RIGHT ? RelativeLayout.TRUE : 0);
         layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL, align == PageIndicatorAlign.CENTER_HORIZONTAL ? RelativeLayout.TRUE : 0);
+        layoutParams.setMargins(layoutParams.leftMargin,layoutParams.topMargin,layoutParams.rightMargin, (int) mIndicatorBottomMargin);
         loPageTurningPoint.setLayoutParams(layoutParams);
         return this;
     }

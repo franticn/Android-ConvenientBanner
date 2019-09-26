@@ -20,11 +20,11 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0+'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0+'
-    implementation 'com.bigkoo:convenientbanner:2.1.5'
+//    implementation 'com.bigkoo:convenientbanner:2.1.5'
     api 'com.facebook.fresco:fresco:1.3.0'
     api 'me.relex:photodraweeview:1.1.3'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
-    //        implementation project(':convenientbanner')
+            implementation project(':convenientbanner')
     implementation 'androidx.recyclerview:recyclerview:1.0.0+'
     implementation 'in.srain.cube:ultra-ptr:1.0.11'
 }

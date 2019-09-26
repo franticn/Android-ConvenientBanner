@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         app:canLoop="true"
+        app:indicatorBottomMargin="100dp"
         app:autoTurningTime="3000"/>
 
 </LinearLayout>
