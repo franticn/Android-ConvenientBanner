@@ -41,6 +41,23 @@ public class ConvenientBanner<T> extends RelativeLayout {
     private ViewGroup loPageTurningPoint;
     private long autoTurningTime = -1;
     private boolean turning;
+
+    /**
+     * 获取 是否可以滑动
+     * @return
+     */
+    public boolean isCanTurn() {
+        return canTurn;
+    }
+
+    /**
+     * 设置是否可以翻页
+     * @param canTurn
+     */
+    public void setCanTurn(boolean canTurn) {
+        this.canTurn = canTurn;
+    }
+
     private boolean canTurn = false;
     private boolean canLoop = true;
     private CBLoopScaleHelper cbLoopScaleHelper;
